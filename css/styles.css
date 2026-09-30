@@ -1,0 +1,308 @@
+/* PLUMBING_V 1 — reset tecnico canonico (Toolkit/boilerplate/plumbing.css) */
+[hidden] { display: none !important; }
+img { max-width: 100%; height: auto; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ══════════ PASTO — Laboratorio di pasta con cucina, Via Zecca Vecchia 4 (Cinque Vie) ══════════
+   La pagina è il loro foglio del giorno («OGGI ABBIAMO PREPARATO:», “Ante”Pasto, A B C D, Dolce) e parte dal loro logo: «PAST» in
+   lettere sottili e la O fatta di pasta avvolta sulla forchetta — la firma, _pst_firma.mjs. I colori sono i loro: il bordeaux
+   dell'insegna, l'ocra del ricciolo, l'azzurro delle posate, il salmone della facciata, il rosso dei tavoli. */
+:root {
+  --bordeaux: #6E3A45;
+  --bordeaux-scuro: #532A33;
+  --ocra: #D9A441;
+  --ocra-chiaro: #F0D596;
+  --azzurro: #9FD0DA;
+  --salmone: #E8A98C;
+  --salmone-chiaro: #F6DCCF;
+  --rosso: #C8453C;
+  --rosso-scuro: #A5352E;
+  --carta: #FBF6EF;
+  --crema: #F3ECE2;
+  --inchiostro: #2B2124;
+  --grigio: #5E5256;
+  --aperto: #2F6B2A;
+  /* 'Comfortaa' arriva solo con le cifre (text=0123456789): lo zero di Dosis ha il segno dentro (zero-check) */
+  --f-titoli: 'Comfortaa', 'Dosis', 'Trebuchet MS', sans-serif;
+  --f-testo: 'Krub', 'Segoe UI', Arial, sans-serif;
+  --f-foglio: 'Lekton', 'Courier New', monospace;
+  --gutter: 16px;
+  --testata-h: 62px;
+}
+@media (min-width: 760px) { :root { --gutter: 24px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--inchiostro); font: 400 1.07rem/1.62 var(--f-testo); background: var(--carta); }
+a { color: var(--bordeaux); }
+b, strong { font-weight: 700; }
+.salta { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; background: #fff; color: #111; font-weight: 700; text-decoration: none; }
+.salta:focus { top: 10px; }
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.forme-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+section[id] { scroll-margin-top: calc(var(--testata-h) + 14px); }
+.intero { white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--ocra); outline-offset: 2px; }
+/* finché i caratteri non arrivano il ripiego è più largo: una parola lunga va a capo invece di uscire (riserva-check, #233) */
+h1, h2, h3, .marchio__nome, .piede__marchio, .formato__nome { overflow-wrap: anywhere; }
+
+/* ── la testata: il pannello bordeaux dell'insegna ── */
+.testata { position: sticky; top: 0; z-index: 50; background: var(--bordeaux); color: #FFFFFF; }
+.testata__dentro { display: flex; align-items: center; gap: 10px; max-width: 1240px; margin: 0 auto; padding: 8px var(--gutter); min-height: var(--testata-h); }
+.marchio { display: inline-flex; flex-direction: column; min-width: 0; flex: 0 1 auto; color: #FFFFFF; text-decoration: none; line-height: 1; }
+.marchio__nome { font: 300 1.9rem/1 var(--f-titoli); letter-spacing: .12em; }
+.marchio__sotto { display: none; margin-top: 3px; font: 600 .66rem/1.2 var(--f-titoli); letter-spacing: .16em; text-transform: uppercase; color: var(--azzurro); white-space: nowrap; }
+.voci { display: none; }
+.testata__azioni { margin-left: auto; display: flex; align-items: center; gap: 6px; flex: none; }
+.lingue { display: flex; }
+.lingue button { min-width: 34px; min-height: 38px; padding: 0 5px; border: 1px solid rgba(255, 255, 255, .5); background: transparent; color: #FFFFFF; font: 700 .86rem var(--f-testo); cursor: pointer; }
+.lingue button + button { border-left: 0; }
+.lingue button.is-on { background: #FFFFFF; border-color: #FFFFFF; color: var(--bordeaux); }
+.chiama { display: none; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; background: var(--ocra); color: var(--inchiostro); font: 600 1rem var(--f-titoli); text-decoration: none; }
+.chiama:hover { background: var(--ocra-chiaro); }
+.burger { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 10px; border: 1px solid rgba(255, 255, 255, .5); border-radius: 4px; background: transparent; cursor: pointer; }
+.burger span { display: block; height: 2px; background: #FFFFFF; transition: transform .2s, opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-mobile { position: fixed; top: var(--testata-h); left: 0; right: 0; z-index: 49; max-height: calc(100vh - var(--testata-h)); overflow-y: auto; padding: 10px var(--gutter) 22px; background: var(--bordeaux-scuro); box-shadow: 0 10px 24px rgba(0, 0, 0, .3); }
+.menu-mobile a { display: block; padding: 12px 2px 10px; border-bottom: 1px solid rgba(255, 255, 255, .2); color: #FFFFFF; font: 500 1.35rem/1.3 var(--f-titoli); text-decoration: none; }
+.menu-mobile__tel { display: flex !important; justify-content: center; gap: 8px; margin-top: 14px; border: 0 !important; border-radius: 999px; background: var(--ocra); color: var(--inchiostro) !important; }
+
+/* ── l'apertura: la carta crema, la forchettata a destra ── */
+.apertura { display: grid; gap: 30px; padding: 40px max(var(--gutter), calc((100% - 1240px) / 2)) 54px; background: var(--carta); }
+.apertura__sopra { margin: 0 0 14px; font: 600 .98rem/1.4 var(--f-titoli); letter-spacing: .12em; text-transform: uppercase; color: var(--bordeaux); }
+.apertura__titolo { max-width: 12em; margin: 0 0 18px; font: 500 clamp(2.3rem, 1.5rem + 2.9vw, 3.7rem)/1.06 var(--f-titoli); letter-spacing: -.01em; color: var(--inchiostro); text-wrap: balance; }
+.apertura__frase { max-width: 32em; margin: 0 0 24px; font-size: 1.14rem; }
+.voto { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin: 0; }
+.voto__n { font: 600 2.7rem/1 var(--f-titoli); color: var(--bordeaux); }
+.voto__su { font-size: 1rem; }
+.voto--sezione { margin: -4px 0 30px; }
+.stato { display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; font: 700 1rem/1.4 var(--f-testo); color: var(--inchiostro); }
+.stato::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: currentColor; opacity: .45; flex: none; }
+.stato.is-aperto { color: var(--aperto); }
+.stato.is-aperto::before { opacity: 1; box-shadow: 0 0 0 3px rgba(47, 107, 42, .2); }
+.apertura__azioni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.bottone { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 26px; border: 2px solid var(--bordeaux); border-radius: 999px; background: transparent; color: var(--bordeaux); font: 600 1.05rem/1.1 var(--f-titoli); text-decoration: none; cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
+.bottone--pieno { background: var(--bordeaux); color: #FFFFFF; }
+.bottone--pieno:hover { background: var(--bordeaux-scuro); border-color: var(--bordeaux-scuro); }
+.bottone--vuoto:hover { background: var(--bordeaux); color: #FFFFFF; }
+.bottone--carta { border-color: #FFFFFF; background: #FFFFFF; color: var(--rosso-scuro); }
+.bottone--carta:hover { background: var(--carta); }
+
+/* la forchettata: la firma */
+.apertura__firma { width: 100%; max-width: 640px; justify-self: center; }
+.forchettata { margin: 0; -webkit-user-select: none; user-select: none; }
+.forchettata__svg { border-radius: 18px; box-shadow: 0 24px 40px -30px rgba(83, 42, 51, .75); }
+.forchettata__didascalia { min-height: 3em; margin: 14px 0 0; font-size: 1.04rem; line-height: 1.45; text-align: center; }
+.forchettata__d { display: none; }
+.forchettata[data-modo="0"] .forchettata__d[data-m="0"], .forchettata[data-modo="1"] .forchettata__d[data-m="1"], .forchettata[data-modo="2"] .forchettata__d[data-m="2"] { display: inline; }
+.forchettata__modi { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+.forchettata__modi button { min-height: 44px; padding: 0 18px; border: 2px solid var(--rosso); border-radius: 999px; background: #FFFFFF; color: var(--rosso-scuro); font: 600 1rem/1.2 var(--f-titoli); cursor: pointer; }
+.forchettata__modi button:hover { background: var(--salmone-chiaro); }
+.forchettata__modi button[aria-pressed="true"] { background: var(--rosso-scuro); border-color: var(--rosso-scuro); color: #FFFFFF; }
+/* senza JS il piatto non cambia: i bottoni restano nascosti col loro posto (#240) */
+.no-js .forchettata__modi { visibility: hidden; }
+.apertura__nota { max-width: 36em; margin: 14px auto 0; font-size: .96rem; color: var(--grigio); text-align: center; }
+
+/* ── i capitoli ── */
+.capitolo { padding: 68px max(var(--gutter), calc((100% - 1180px) / 2)) 66px; }
+.capitolo--facciata { background: var(--salmone-chiaro); }
+.capitolo--crema { background: var(--crema); }
+.capitolo--carta { background: var(--carta); }
+.capitolo--tavolo { background-color: var(--rosso); color: #FFFFFF; }
+.etichetta { margin: 0; font: 600 1rem/1.3 var(--f-titoli); letter-spacing: .16em; text-transform: uppercase; color: var(--bordeaux); }
+.etichetta--chiara { color: #FFFFFF; }
+.capitolo__titolo { max-width: 18em; margin: 6px 0 20px; font: 500 clamp(1.9rem, 1.35rem + 2.1vw, 2.85rem)/1.12 var(--f-titoli); color: var(--inchiostro); text-wrap: balance; }
+.capitolo--tavolo .capitolo__titolo { color: #FFFFFF; }
+.capitolo__sotto { max-width: 42em; margin: 0 0 30px; font-size: 1.1rem; }
+figure { margin: 0; }
+figcaption { margin-top: 8px; font-size: .96rem; color: var(--grigio); }
+.foto { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.foto img { display: block; width: 100%; height: auto; border-radius: 10px; }
+.foto__nota { max-width: 46em; margin: 28px 0 0; font-size: .96rem; color: var(--grigio); }
+.taglio { font-style: normal; font-family: var(--f-testo); }
+
+/* “ante”pasto: tre regole, ognuna con la sua forma */
+.regole { display: grid; gap: 18px; margin: 0; padding: 0; list-style: none; }
+.regola { padding: 22px 22px 18px; border-radius: 16px; background: #FFFFFF; box-shadow: 0 16px 28px -24px rgba(83, 42, 51, .6); }
+.regola__forma { display: block; width: 72px; height: 45px; margin-bottom: 8px; }
+.regola__titolo { margin: 0 0 6px; font: 600 1.35rem/1.2 var(--f-titoli); color: var(--bordeaux); }
+.regola p { margin: 0; }
+.citazione { max-width: 30em; margin: 34px 0 0; padding: 0 0 0 20px; border-left: 5px solid var(--ocra); }
+.citazione p { margin: 0; font: 500 clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem)/1.2 var(--f-titoli); color: var(--bordeaux); }
+.citazione footer { margin-top: 8px; font-size: .98rem; color: var(--grigio); }
+
+/* oggi abbiamo preparato: il foglio nella busta di plastica sul tavolo rosso */
+.oggi { display: grid; gap: 18px; justify-items: center; }
+.busta { position: relative; width: 100%; max-width: 620px; padding: 12px; border-radius: 6px; background: #1F1B1B; box-shadow: 0 28px 40px -26px rgba(0, 0, 0, .75); }
+/* la plastica: un riflesso obliquo sopra il foglio */
+.busta::after { content: ''; position: absolute; inset: 12px; border-radius: 2px; background: linear-gradient(118deg, rgba(255, 255, 255, 0) 38%, rgba(255, 255, 255, .22) 46%, rgba(255, 255, 255, 0) 56%); pointer-events: none; }
+.giorni { margin: 0; padding: 0; list-style: none; }
+.giorno { padding: 26px 22px 20px; background: #FFFFFF; color: var(--inchiostro); }
+.giorno + .giorno { margin-top: 12px; }
+.giorno__testa { margin: 0 0 14px; font: 700 1.05rem/1.3 var(--f-foglio); letter-spacing: .08em; text-transform: uppercase; text-align: center; }
+.giorno__voce { margin: 14px 0 6px; font: 700 .98rem/1.3 var(--f-foglio); text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; }
+.giorno__ante { margin: 0 0 4px; font: 400 .98rem/1.45 var(--f-foglio); }
+.piatti { margin: 0; padding: 0; list-style: none; }
+.piatti li { display: flex; align-items: flex-end; gap: 8px; padding: 7px 0; }
+.piatti__l { flex: none; align-self: flex-start; width: 1.5em; font: 700 1rem/1.4 var(--f-foglio); }
+.piatti__n { flex: 0 1 auto; font: 700 1rem/1.4 var(--f-foglio); }
+.piatti__n i { font-weight: 400; }
+/* i puntini guida: finiscono nella forma della pasta, non in un prezzo */
+.piatti__p { flex: 1 1 18px; min-width: 18px; margin-bottom: 6px; border-bottom: 2px dotted rgba(43, 33, 36, .55); }
+.piatti__f { flex: none; width: 46px; height: 29px; }
+.giorno__fonte { margin: 16px 0 0; padding-top: 10px; border-top: 1px solid #E6DED4; font: italic 400 .9rem/1.4 var(--f-foglio); color: var(--grigio); }
+.oggi__comandi { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 18px; }
+.oggi__conta { margin: 0; font: 600 1rem/1.3 var(--f-titoli); }
+.oggi__nota { max-width: 40em; margin: 4px 0 0; font-size: 1rem; text-align: center; }
+/* con JS si vede un foglio alla volta; senza, la pila intera (#240: la firma non c'entra) */
+.js .giorno { display: none; }
+.js .giorno.is-on { display: block; }
+.js .giorno + .giorno { margin-top: 0; }
+.no-js .oggi__comandi { display: none; }
+.giorno.esce { animation: fogliofuori .26s ease-in forwards; }
+.giorno.entra { animation: fogliodentro .32s ease-out; }
+@keyframes fogliofuori { to { transform: translateY(-26px); opacity: 0; } }
+@keyframes fogliodentro { from { transform: translateY(30px); opacity: 0; } }
+
+/* i formati: il catalogo a filo sottile, numerato */
+.catalogo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--ocra); border-left: 1px solid var(--ocra); }
+.formato { position: relative; padding: 16px 14px 14px; border-right: 1px solid var(--ocra); border-bottom: 1px solid var(--ocra); background: #FFFDF8; }
+.formato__n { font: 600 .82rem/1 var(--f-titoli); letter-spacing: .1em; color: var(--bordeaux); }
+.formato__f { display: block; width: 100%; max-width: 150px; height: 84px; margin: 6px auto 8px; }
+.formato__nome { margin: 0; font: 600 1.25rem/1.2 var(--f-titoli); color: var(--inchiostro); }
+.formato p { margin: 2px 0 0; font-size: .96rem; line-height: 1.4; color: var(--grigio); }
+
+/* il posto: il mosaico delle foto intere */
+/* le colonne si riempiono dall'alto: nessun buco fra foto di proporzioni diverse */
+.mosaico { columns: 1; column-gap: 18px; margin: 0; padding: 0; list-style: none; }
+.tessera { break-inside: avoid; margin: 0 0 18px; }
+.tessera .foto img { box-shadow: 0 16px 26px -22px rgba(43, 33, 36, .8); }
+
+/* dicono: le palette di legno col numero, come i loro cucchiai */
+.recensioni { display: grid; gap: 22px; margin: 0; padding: 0; list-style: none; align-items: start; }
+.recensione { position: relative; padding: 26px 22px 18px 22px; border-radius: 14px; background: #FFFFFF; box-shadow: 0 16px 28px -24px rgba(83, 42, 51, .6); }
+.paletta { position: absolute; top: -16px; right: 18px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #E9C79A, #C89560 70%, #B07E4A); box-shadow: inset 0 0 0 2px rgba(120, 78, 38, .35), 0 6px 10px -6px rgba(0, 0, 0, .5); font: 700 1.25rem/1 var(--f-titoli); color: #3A2414; }
+.recensione__testo { margin: 0; font-size: 1.03rem; line-height: 1.6; }
+.recensione__chi { margin: 12px 0 0; font-size: .92rem; line-height: 1.5; color: var(--grigio); }
+.recensione__chi b { display: block; font: 600 1.1rem/1.35 var(--f-titoli); color: var(--inchiostro); }
+.dicono__nota { max-width: 46em; margin: 28px 0 0; font-size: 1rem; }
+.dicono__nota a { font-weight: 700; }
+
+/* orari */
+.stato--settimana { margin: -6px 0 20px; }
+.orari-dove { display: grid; gap: 34px; align-items: start; }
+.orari { max-width: 540px; padding: 14px 18px; background: #FFFFFF; border-radius: 14px; box-shadow: 0 14px 26px -22px rgba(83, 42, 51, .6); }
+.orari__riga { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: 8px; padding: 7px 4px; border-bottom: 1px solid #EFE4DA; }
+.orari__riga:last-child { border-bottom: 0; }
+.orari__riga span:first-child { font-weight: 700; }
+.orari__riga.is-today { background: var(--salmone-chiaro); border-radius: 6px; font-weight: 700; }
+.orari__nota { max-width: 32em; margin: 16px 0 0; font-size: 1rem; color: var(--grigio); }
+.dove { display: grid; gap: 22px; }
+.cartina { overflow: hidden; border: 6px solid #FFFFFF; border-radius: 14px; box-shadow: 0 14px 26px -22px rgba(83, 42, 51, .6); }
+.cartina iframe { display: block; width: 100%; height: 320px; border: 0; }
+.indirizzo { margin: 0; }
+.indirizzo div { display: grid; grid-template-columns: 7.2em minmax(0, 1fr); gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(110, 58, 69, .22); }
+.indirizzo dt { font: 600 .92rem/1.9 var(--f-titoli); letter-spacing: .08em; text-transform: uppercase; color: var(--bordeaux); }
+.indirizzo dd { margin: 0; overflow-wrap: anywhere; }
+.dove__azioni { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+
+/* domande */
+.domande { max-width: 840px; }
+.domande details { border-bottom: 1px solid rgba(43, 33, 36, .2); }
+.domande summary { padding: 14px 4px 12px; font: 600 1.16rem/1.4 var(--f-titoli); color: var(--inchiostro); cursor: pointer; }
+.domande details p { max-width: 46em; margin: 0 0 16px; padding: 0 4px; }
+
+/* ── la chiusura: il pannello dell'insegna ── */
+.piede { background: var(--bordeaux); color: #FFFFFF; }
+.piede__dentro { max-width: 900px; margin: 0 auto; padding: 42px var(--gutter) 96px; text-align: center; }
+.piede__marchio { margin: 0; font: 300 3rem/1 var(--f-titoli); letter-spacing: .14em; }
+.piede__sotto { margin: 6px 0 18px; font: 600 .82rem/1.3 var(--f-titoli); letter-spacing: .18em; text-transform: uppercase; color: var(--azzurro); }
+.piede__dove, .piede__orario { margin: 0 0 8px; }
+.piede a { color: #FFFFFF; }
+.piede__cred { max-width: 54em; margin: 18px auto 10px; font-size: .94rem; color: #EBD9DD; }
+.piede__su { font-weight: 700; }
+
+/* ── reveal (plumbing) ── */
+.js .reveal { opacity: 0; }
+.js .reveal.in-view { opacity: 1; }
+html:not(.js) .reveal { opacity: 1; }
+.reduced-motion .reveal { opacity: 1 !important; }
+
+/* ── la barra e la lightbox ── */
+.action-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1fr; background: var(--bordeaux-scuro); transform: translateY(100%); transition: transform .25s; }
+.action-bar.is-visible { transform: translateY(0); }
+.action-bar a { display: flex; align-items: center; justify-content: center; min-height: 54px; color: #fff; font: 600 1.05rem var(--f-titoli); text-decoration: none; }
+.action-bar a:first-child { background: var(--bordeaux); }
+#lightbox { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(33, 22, 25, .95); }
+#lightbox[hidden] { display: none !important; }
+#lightbox img { width: auto; max-width: min(1400px, 100%); max-height: 88vh; }
+#lightboxClose { position: absolute; top: 14px; right: 16px; width: 48px; height: 48px; border: 1px solid rgba(255, 255, 255, .6); border-radius: 50%; background: transparent; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; }
+
+/* ── le larghezze ── */
+@media (max-width: 359px) {
+  .testata__dentro { gap: 6px; }
+  .lingue button { min-width: 31px; }
+  .marchio__nome { font-size: 1.6rem; }
+  .stato { font-size: .92rem; }
+  .forchettata__modi button { padding: 0 12px; }
+  .giorno { padding: 20px 14px 16px; }
+}
+@media (min-width: 420px) {
+  .marchio__sotto { display: block; }
+}
+@media (min-width: 560px) {
+  .chiama { display: inline-flex; }
+  .catalogo { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mosaico { columns: 2; }
+}
+@media (min-width: 760px) {
+  .action-bar { display: none; }
+  .piede__dentro { padding-bottom: 50px; }
+  .regole { grid-template-columns: repeat(3, 1fr); }
+  .recensioni { grid-template-columns: 1fr 1fr; gap: 30px 24px; }
+  .orari-dove { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+  .cartina iframe { height: 340px; }
+  .giorno { padding: 34px 38px 24px; }
+}
+@media (min-width: 960px) {
+  .apertura { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); align-items: center; gap: 46px; }
+  .mosaico { columns: 3; }
+  .catalogo { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+@media (min-width: 1060px) {
+  :root { --testata-h: 66px; }
+  .testata__dentro { gap: 16px; }
+  .voci { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-left: 30px; }
+  .voci a { padding: 4px 1px 2px; color: #FFFFFF; font: 500 1.06rem var(--f-titoli); text-decoration: none; }
+  .voci a:hover, .voci a[aria-current="true"] { color: var(--ocra-chiaro); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 7px; }
+  .burger { display: none; }
+  .recensioni { grid-template-columns: repeat(3, 1fr); }
+}
+
+/*FORCHETTA*/
+/* la forchettata — generato da _pst_firma.mjs: non modificare a mano */
+.forchetta__svg { display: block; width: 100%; height: auto; overflow: hidden; background: #FFFDF8; }
+.parola__lettera { fill: none; stroke: #6E3A45; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+.parola__sotto { font: 600 17px 'Dosis', 'Arial Narrow', sans-serif; fill: #6E3A45; }
+.tavolo { fill: #C8453C; }
+.tavolo__bordo { fill: #DB6A5E; }
+.piatto__ombra { fill: #8E2A24; opacity: .45; }
+.piatto { fill: #FFFDF8; stroke: #E9E1D6; stroke-width: 2; }
+.piatto__fondo { fill: none; stroke: #EDE5DA; stroke-width: 2.5; }
+.filo path, .nido path { fill: none; stroke-linecap: butt; stroke-linejoin: round; }
+.nido__luce { opacity: .75; }
+.piatto__sugo { opacity: .14; }
+.forchetta__manico, .forchetta__collo, .forchetta__rebbio { fill: #9FD0DA; stroke: #4F8792; stroke-width: 1.6; }
+.forchettata[data-modo="0"] .piatto__fili:not([data-m="0"]), .forchettata[data-modo="0"] .nido:not([data-m="0"]) { display: none; }
+.forchettata[data-modo="1"] .piatto__fili:not([data-m="1"]), .forchettata[data-modo="1"] .nido:not([data-m="1"]) { display: none; }
+.forchettata[data-modo="2"] .piatto__fili:not([data-m="2"]), .forchettata[data-modo="2"] .nido:not([data-m="2"]) { display: none; }
+.firma-attesa .boccone { transform: translate(466px, -250px); }
+.firma-attesa .nido path { stroke-dashoffset: 1; }
+.firma-attesa .condimento { opacity: 0; }
+.firma-attesa .filo { opacity: 1; }
+.firma-attesa .filo path { stroke-dashoffset: 0; }
+/*/FORCHETTA*/
