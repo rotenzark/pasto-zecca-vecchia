@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
 <script>(function(){var r=document.documentElement;r.classList.remove('no-js');
 /* la firma: finché main.js non parte c'è il piatto coi fili e niente forchetta; se il codice non arriva, dopo 2,5 s c'è il boccone finito */
 try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('firma-attesa');window.__attesaForchetta=setTimeout(function(){r.classList.remove('firma-attesa')},2500)}}catch(e){}})()</script>
@@ -20,16 +21,54 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;600;700&amp;family=Krub:ital,wght@0,400;0,700;1,400&amp;family=Lekton:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&amp;text=0123456789&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css?v=1">
 <link rel="stylesheet" href="css/styles.css?v=1">
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 <script src="js/main.js?v=1" defer></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Restaurant","name":"Pasto - Laboratorio di pasta con cucina","description":"Laboratorio di pasta con cucina in Via Zecca Vecchia 4 a Milano: pasta fresca fatta ogni giorno, pochi primi che cambiano ogni giorno, solo a pranzo.","servesCuisine":"Italiana","url":"https://rotenzark.github.io/pasto-zecca-vecchia/","image":"https://rotenzark.github.io/pasto-zecca-vecchia/img/og.jpg","telephone":"+39 389 035 6309","address":{"@type":"PostalAddress","streetAddress":"Via Zecca Vecchia 4","postalCode":"20123","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"geo":{"@type":"GeoCoordinates","latitude":45.46267,"longitude":9.18441},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"12:00","closes":"15:30"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"2632","bestRating":"5"},"sameAs":["https://www.facebook.com/pastomilano/","https://www.instagram.com/pastomilano/"]}
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Pasto - Laboratorio di pasta con cucina",
+  "description": "Laboratorio di pasta con cucina in Via Zecca Vecchia 4 a Milano: pasta fresca fatta ogni giorno, pochi primi che cambiano ogni giorno, solo a pranzo.",
+  "servesCuisine": "Italiana",
+  "url": "https://rotenzark.github.io/pasto-zecca-vecchia/",
+  "image": "https://rotenzark.github.io/pasto-zecca-vecchia/img/og.jpg",
+  "telephone": "+39 389 035 6309",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Zecca Vecchia 4",
+    "postalCode": "20123",
+    "addressLocality": "Milano",
+    "addressRegion": "MI",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.46267,
+    "longitude": 9.18441
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "12:00",
+      "closes": "15:30"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/pastomilano/",
+    "https://www.instagram.com/pastomilano/"
+  ]
+}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -59,7 +98,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
   <div class="testata__dentro">
     <a class="marchio" href="#inizio" aria-label="Pasto: torna all'inizio" data-i18n-aria="m.top">
       <span class="marchio__nome" aria-hidden="true">PASTO</span>
-      <span class="marchio__sotto" aria-hidden="true">laboratorio di pasta con cucina</span>
+      <span lang="it" class="marchio__sotto" aria-hidden="true">laboratorio di pasta con cucina</span>
     </a>
     <nav id="mainNav" class="voci" aria-label="Le sezioni" data-i18n-aria="m.nav">
       <a href="#come" data-i18n="n.come">Come funziona</a>
@@ -94,7 +133,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
   <!-- ══════ L'APERTURA: le parole e la forchettata ══════ -->
   <section id="inizio" class="apertura" aria-labelledby="titolo">
     <div class="apertura__testo">
-      <p class="apertura__sopra" data-i18n="h.sopra">Laboratorio di pasta con cucina · Via Zecca Vecchia 4, Milano</p>
+      <p lang="it" class="apertura__sopra" data-i18n="h.sopra">Laboratorio di pasta con cucina · Via Zecca Vecchia 4, Milano</p>
       <h1 id="titolo" class="apertura__titolo" data-i18n="h.titolo">Pasta fresca nel cuore di Milano, ogni giorno.</h1>
       <p class="apertura__frase" data-i18n="h.testo">Per la pausa pranzo con i colleghi o con gli amici: tutti i giorni pasta fresca, grani antichi, materie prime d'eccellenza e di stagione. Dal lunedì al sabato, dalle 12 alle 15:30, nelle Cinque Vie, fra Via Torino e il Cordusio.</p>
       <p class="voto"><b class="voto__n">4,7</b> <span class="voto__su" data-i18n="h.google">su Google, 2.632 recensioni</span></p>
@@ -208,7 +247,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
       <li class="regola reveal"><svg class="regola__forma" aria-hidden="true"><use href="#f-tagliatelle"/></svg><h3 class="regola__titolo" data-i18n="c.3">Dentro, fuori, da portare via</h3><p data-i18n="c.3t">Tavoli in sala e all'aperto, e la pasta anche da asporto. Il locale è piccolo: a pranzo conviene prenotare, al telefono.</p></li>
     </ol>
     <blockquote class="citazione reveal">
-      <p>«La bontà della semplicità.»</p>
+      <p lang="it">«La bontà della semplicità.»</p>
       <footer data-i18n="c.chi">Matteo Filippo Balduzzi, in una recensione su Google</footer>
     </blockquote>
   </section>
@@ -228,7 +267,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
             <p class="giorno__voce" data-i18n="o2.pasta">Pasta — fresca tutti i giorni</p>
             <ul class="piatti">
               <li><b class="piatti__l">A</b><span class="piatti__n">Caserecce al sugo di tonno, olive taggiasche e capperi</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-caserecce"/></svg></li>
-              <li><b class="piatti__l">B</b><span class="piatti__n">Gigli con crema di ceci, cavolo nero e ricotta salata</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
+              <li><b class="piatti__l">B</b><span lang="it" class="piatti__n">Gigli con crema di ceci, cavolo nero e ricotta salata</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
               <li><b class="piatti__l">C</b><span class="piatti__n">Paccheri «cacio e pepe»</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-paccheri"/></svg></li>
               <li><b class="piatti__l">D</b><span class="piatti__n">Spaghetti al pomodoro &amp; basilico</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-spaghetti"/></svg></li>
             </ul>
@@ -242,7 +281,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
             <p class="giorno__ante">Burrata affumicata con cipolle borettane <span class="taglio">[…]</span></p>
             <p class="giorno__voce" data-i18n="o2.pasta2">Pasta</p>
             <ul class="piatti">
-              <li><b class="piatti__l">A</b><span class="piatti__n">Gnocchetti con crema di ceci e salsiccia</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gnocchetti"/></svg></li>
+              <li><b class="piatti__l">A</b><span lang="it" class="piatti__n">Gnocchetti con crema di ceci e salsiccia</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gnocchetti"/></svg></li>
               <li><b class="piatti__l">B</b><span class="piatti__n">Gigli al pesto di pistacchio</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
               <li><b class="piatti__l">C</b><span class="piatti__n">Paccheri cacio e pepe</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-paccheri"/></svg></li>
               <li><b class="piatti__l">D</b><span class="piatti__n">Paccherotti pomodoro e basilico</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-paccheri"/></svg></li>
@@ -257,7 +296,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
               <li><b class="piatti__l">A</b><span class="piatti__n">Paccheri cacio e pepe</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-paccheri"/></svg></li>
               <li><b class="piatti__l">B</b><span class="piatti__n">Tagliatelle pomodoro e basilico</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-tagliatelle"/></svg></li>
               <li><b class="piatti__l">C</b><span class="piatti__n">Paccheri alla «gricia»</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-paccheri"/></svg></li>
-              <li><b class="piatti__l">D</b><span class="piatti__n">Gigli con crema di cavolfiore romano, olive taggiasche e peperoncino</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
+              <li><b class="piatti__l">D</b><span lang="it" class="piatti__n">Gigli con crema di cavolfiore romano, olive taggiasche e peperoncino</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
             </ul>
             <p class="giorno__fonte" data-i18n="o2.f2">Dalla lavagna «Oggi si mangia», sulla loro pagina Facebook (2022).</p>
           </li>
@@ -265,7 +304,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
             <p class="giorno__testa">Oggi si mangia</p>
             <ul class="piatti">
               <li><b class="piatti__l">A</b><span class="piatti__n">Paccheri cacio e pepe</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-paccheri"/></svg></li>
-              <li><b class="piatti__l">B</b><span class="piatti__n">Gigli con pesto alla trapanese</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
+              <li><b class="piatti__l">B</b><span lang="it" class="piatti__n">Gigli con pesto alla trapanese</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-gigli"/></svg></li>
               <li><b class="piatti__l">C</b><span class="piatti__n">Spaghetti alla Ferdinando II</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-spaghetti"/></svg></li>
               <li><b class="piatti__l">D</b><span class="piatti__n">Tagliatelle pomodoro e basilico</span><span class="piatti__p" aria-hidden="true"></span><svg class="piatti__f" aria-hidden="true"><use href="#f-tagliatelle"/></svg></li>
             </ul>
@@ -333,12 +372,12 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
     <h2 id="diconoT" class="capitolo__titolo" data-i18n="d.titolo">Semplice, abbondante, fatta a mano</h2>
     <p class="voto voto--sezione"><b class="voto__n">4,7</b> <span class="voto__su" data-i18n="d.google">su Google, 2.632 recensioni</span></p>
     <ul class="recensioni">
-      <li class="recensione reveal"><span class="paletta" aria-hidden="true">1</span><p class="recensione__testo">«Un posto semplice senza pretese, anzi ti fa sentire quasi a casa. Il menù è ridotto e questo è simbolo di qualità. La pasta buonissima e fatta con ingredienti semplici e gustosi. Il tiramisù era spettacolare. Altra nota di merito il servizio, i camerieri sono molto accoglienti e simpatici. Ci tornerò sicuramente 🤍»</p><p class="recensione__chi"><b>Federica Varca</b> <span data-i18n="d.g6m">Google, 6 mesi fa</span></p></li>
-      <li class="recensione reveal"><span class="paletta" aria-hidden="true">2</span><p class="recensione__testo">«Menù che cambia ogni giorno, perché la pasta è sempre fresca fatta al momento e la qualità si sente. Il locale era strapieno e il servizio è stato ottimo. Il personale è stato gentile e disponibile, abbiamo passato una bellissima pausa pranzo. Consiglio!»</p><p class="recensione__chi"><b>Gloria Fioretti</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
-      <li class="recensione reveal"><span class="paletta" aria-hidden="true">3</span><p class="recensione__testo">«Se cercate roba complessa, gourmet e menù lunghi pagine è il posto sbagliato. È il posto giusto per rilassarsi, mangiare semplice ma buonissimo. <span class="taglio">[…]</span> Il format è geniale. Complimenti anche alla quantità e qualità.»</p><p class="recensione__chi"><b>Silvia Ricco</b> <span data-i18n="d.g1a">Google, un anno fa</span></p></li>
-      <li class="recensione reveal"><span class="paletta" aria-hidden="true">4</span><p class="recensione__testo">«Mi è piaciuto tutto, l'angolo nascosto di Milano, l'arredamento, la pasta, il vino, l'amaro, i ragazzi simpatici che ci lavorano. Una bella scoperta!»</p><p class="recensione__chi"><b>Fabio Nobis</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
-      <li class="recensione reveal"><span class="paletta" aria-hidden="true">5</span><p class="recensione__testo">«Il locale ha un'atmosfera semplice ma con dettagli che lo rendono piacevole. Si nota che prestano attenzione a ciò che fanno, dal servizio al modo in cui presentano tutto. L'ambiente è tranquillo, ideale per chiacchierare senza fretta. Sono stati veloci e gentili nel servirmi, cosa che apprezzo molto. Non è un posto pretenzioso, ma è uno di quelli che ti fanno sentire a tuo agio.»</p><p class="recensione__chi"><b>Roger Vinson</b> <span data-i18n="d.g1a">Google, un anno fa</span></p></li>
-      <li class="recensione reveal"><span class="paletta" aria-hidden="true">6</span><p class="recensione__testo">«Favoloso. Se volete un posto dove potervi sedere e mangiar un piatto di pasta. È questo il posto giusto. Il menù consiste soltanto in primi con base di pasta e qualche dolce. Ma che dire? La pasta ha il sapore autentico della pasta, con la p maiuscola. Le porzioni sono abbondanti e i piatti variano il giusto. <span class="taglio">[…]</span> Un piccolo consiglio è quello di prenotare dato il locale piccolo. Il personale è tutto giovane e dinamico. Consigliato per un pranzo che sa di casa, in un ambiente rilassante.»</p><p class="recensione__chi"><b>Nicole Fanti</b> <span data-i18n="d.g1a">Google, un anno fa</span></p></li>
+      <li class="recensione reveal"><span class="paletta" aria-hidden="true">1</span><p lang="it" class="recensione__testo">«Un posto semplice senza pretese, anzi ti fa sentire quasi a casa. Il menù è ridotto e questo è simbolo di qualità. La pasta buonissima e fatta con ingredienti semplici e gustosi. Il tiramisù era spettacolare. Altra nota di merito il servizio, i camerieri sono molto accoglienti e simpatici. Ci tornerò sicuramente 🤍»</p><p class="recensione__chi"><b>Federica Varca</b> <span data-i18n="d.g6m">Google, 6 mesi fa</span></p></li>
+      <li class="recensione reveal"><span class="paletta" aria-hidden="true">2</span><p lang="it" class="recensione__testo">«Menù che cambia ogni giorno, perché la pasta è sempre fresca fatta al momento e la qualità si sente. Il locale era strapieno e il servizio è stato ottimo. Il personale è stato gentile e disponibile, abbiamo passato una bellissima pausa pranzo. Consiglio!»</p><p class="recensione__chi"><b>Gloria Fioretti</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
+      <li class="recensione reveal"><span class="paletta" aria-hidden="true">3</span><p lang="it" class="recensione__testo">«Se cercate roba complessa, gourmet e menù lunghi pagine è il posto sbagliato. È il posto giusto per rilassarsi, mangiare semplice ma buonissimo. <span class="taglio">[…]</span> Il format è geniale. Complimenti anche alla quantità e qualità.»</p><p class="recensione__chi"><b>Silvia Ricco</b> <span data-i18n="d.g1a">Google, un anno fa</span></p></li>
+      <li class="recensione reveal"><span class="paletta" aria-hidden="true">4</span><p lang="it" class="recensione__testo">«Mi è piaciuto tutto, l'angolo nascosto di Milano, l'arredamento, la pasta, il vino, l'amaro, i ragazzi simpatici che ci lavorano. Una bella scoperta!»</p><p class="recensione__chi"><b>Fabio Nobis</b> <span data-i18n="d.g2a">Google, 2 anni fa</span></p></li>
+      <li class="recensione reveal"><span class="paletta" aria-hidden="true">5</span><p lang="it" class="recensione__testo">«Il locale ha un'atmosfera semplice ma con dettagli che lo rendono piacevole. Si nota che prestano attenzione a ciò che fanno, dal servizio al modo in cui presentano tutto. L'ambiente è tranquillo, ideale per chiacchierare senza fretta. Sono stati veloci e gentili nel servirmi, cosa che apprezzo molto. Non è un posto pretenzioso, ma è uno di quelli che ti fanno sentire a tuo agio.»</p><p class="recensione__chi"><b>Roger Vinson</b> <span data-i18n="d.g1a">Google, un anno fa</span></p></li>
+      <li class="recensione reveal"><span class="paletta" aria-hidden="true">6</span><p lang="it" class="recensione__testo">«Favoloso. Se volete un posto dove potervi sedere e mangiar un piatto di pasta. È questo il posto giusto. Il menù consiste soltanto in primi con base di pasta e qualche dolce. Ma che dire? La pasta ha il sapore autentico della pasta, con la p maiuscola. Le porzioni sono abbondanti e i piatti variano il giusto. <span class="taglio">[…]</span> Un piccolo consiglio è quello di prenotare dato il locale piccolo. Il personale è tutto giovane e dinamico. Consigliato per un pranzo che sa di casa, in un ambiente rilassante.»</p><p class="recensione__chi"><b>Nicole Fanti</b> <span data-i18n="d.g1a">Google, un anno fa</span></p></li>
     </ul>
     <p class="dicono__nota"><span data-i18n="d.nota">Dalle recensioni su Google, come sono state scritte; i tagli sono segnati con […]. Anche la frase in alto viene da una recensione su Google.</span> <a href="https://www.google.com/maps/search/?api=1&amp;query=Pasto+Laboratorio+di+pasta+con+cucina%2C+Via+Zecca+Vecchia+4%2C+20123+Milano" target="_blank" rel="noopener" data-i18n="d.tutte">Tutte le recensioni su Google</a></p>
   </section>
@@ -363,7 +402,7 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
       </div>
       <div class="dove">
         <div class="cartina reveal">
-          <iframe title="Mappa: Pasto, Via Zecca Vecchia 4, Milano" data-i18n-title="o.mappa" src="https://maps.google.com/maps?q=Pasto%20-%20Laboratorio%20di%20pasta%20con%20cucina%2C%20Via%20Zecca%20Vecchia%204%2C%2020123%20Milano&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="mappa-clic" data-mappa-clic style="--mappa-h: 400px"><template><iframe title="Mappa: Pasto, Via Zecca Vecchia 4, Milano" data-i18n-title="o.mappa" src="https://maps.google.com/maps?q=Pasto%20-%20Laboratorio%20di%20pasta%20con%20cucina%2C%20Via%20Zecca%20Vecchia%204%2C%2020123%20Milano&amp;z=16&amp;output=embed" width="600" height="400" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></template><div class="mappa-clic__velo"><a class="mappa-clic__btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Pasto+Laboratorio+di+pasta+con+cucina%2C+Via+Zecca+Vecchia+4%2C+20123+Milano" target="_blank" rel="noopener">Mostra la mappa</a><p class="mappa-clic__nota">La mappa è di Google: aprendola, Google riceve il tuo indirizzo IP e può usare i suoi cookie.</p></div></div>
         </div>
         <dl class="indirizzo">
           <div><dt data-i18n="o.dove">Dove</dt><dd data-i18n="o.dovev">Via Zecca Vecchia 4, 20123 Milano: nelle Cinque Vie, fra Via Torino e il Cordusio</dd></div>
@@ -395,10 +434,10 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
 <footer class="piede">
   <div class="piede__dentro">
     <p class="piede__marchio" aria-hidden="true">PASTO</p>
-    <p class="piede__sotto">Laboratorio di pasta con cucina</p>
+    <p lang="it" class="piede__sotto">Laboratorio di pasta con cucina</p>
     <p class="piede__dove">Via Zecca Vecchia 4, 20123 Milano · <a href="tel:+393890356309" class="intero">389 035 6309</a></p>
     <p class="piede__orario" data-i18n="f2.orario">Lunedì–sabato 12–15:30 · domenica chiuso</p>
-    <p class="piede__cred" data-i18n="f2.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · le foto vengono dalla loro pagina Instagram e Facebook e dalle recensioni su Google; orari e recensioni dalla loro scheda Google (settembre 2026). La forchettata e le forme della pasta le abbiamo disegnate noi, dal loro logo e dalle loro lavagne.</p>
+    <p class="piede__cred" data-i18n="f2.cred">Sito dimostrativo realizzato da <a href="https://bespokestud.io" rel="noopener">Bespoke Studio</a> · <a href="privacy.html">Privacy</a> · le foto vengono dalla loro pagina Instagram e Facebook e dalle recensioni su Google; orari e recensioni dalla loro scheda Google (settembre 2026). La forchettata e le forme della pasta le abbiamo disegnate noi, dal loro logo e dalle loro lavagne.</p>
     <p><a class="piede__su" href="#inizio" data-i18n="f2.su">Torna su ↑</a></p>
   </div>
 </footer>
@@ -413,5 +452,6 @@ try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add(
   <img id="lightboxImg" src="" alt="">
 </div>
 
+<script src="js/mappa-clic.js?v=1" defer></script>
 </body>
 </html>
